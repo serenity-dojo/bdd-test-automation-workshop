@@ -35,7 +35,7 @@ We will be running tests in Chrome, so make sure you have the latest version of 
 Clone or download the starter project from https://github.com/serenity-bdd/serenity-cucumber4-starter
 
 ```
-git clone https://github.com/serenity-bdd/serenity-cucumber4-starter
+git clone https://github.com/serenity-dojo/bdd-test-automation-workshop
 ```
 
 Run the initial tests to make sure everything works:
