@@ -19,6 +19,9 @@ No knowledge of Cucumber is required.
 ### Maven
 The sample project will use Maven 3.6.0 (https://maven.apache.org) (any version higher than 3.3 should work.
 
+### Gradle
+The project will also run with Gradle. You can use the Gradle Wrapper to make sure you are using the right version of Gradle (see below).
+
 ### JDK
 You will need a version of the Java JDK (8 or higher). The demo will be done using OpenJDK 12.
 
@@ -42,10 +45,11 @@ Run the initial tests to make sure everything works:
 ```
 mvn clean verify
 ```
-Or
+Or if you prefer to use Gradle:
 ```
 ./gradlew clean test
 ```
+
 
 Now load the project into your IDE.
 
@@ -53,11 +57,11 @@ Now load the project into your IDE.
 
 We will be writing tests for the [TodoMVC](http://todomvc.com) application. You can run your tests either against the publicly available site, or by running the application locally. If you want to run the application locally, install [NodeJS](http://nodejs.org) on your machine and then install the [http-server](https://www.npmjs.com/package/http-server) package, e.g.
 ```
-$npm install http-server -g
+$ npm install http-server -g
 ```
 Then, to run the demo application, run the following from the project root directory:
 ```
-$http-server todomvc
+$ http-server todomvc
 ```
 
 ## Want to learn more?

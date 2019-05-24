@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.48</serenity.version>
-        <serenity.maven.version>2.0.48</serenity.maven.version>
+        <serenity.version>2.0.49</serenity.version>
+        <serenity.maven.version>2.0.49</serenity.maven.version>
         <serenity.cucumber.version>1.0.12</serenity.cucumber.version>
         <cucumber.version>4.2.0</cucumber.version>
         <encoding>UTF-8</encoding>
@@ -80,12 +80,12 @@
             <version>${serenity.version}</version>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.serenity-bdd</groupId>-->
-<!--            <artifactId>serenity-ensure</artifactId>-->
-<!--            <version>${serenity.version}</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-ensure</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-screenplay</artifactId>
