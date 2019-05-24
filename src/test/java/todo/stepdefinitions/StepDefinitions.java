@@ -32,7 +32,6 @@ public class StepDefinitions {
                         .contains(creditMessage)
         );
     }
-
 }
 
 
