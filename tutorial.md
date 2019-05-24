@@ -23,4 +23,7 @@ You will find this scenario in the [adding_a_new_todo.feature](src/test/resource
 
 At the moment, this scenario has no implementation. The first exercise involves implementing these steps to make the test pass.
 
+### Add step definition methods
+
+
 

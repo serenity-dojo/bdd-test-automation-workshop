@@ -1,4 +1,4 @@
-package todo.navigation;
+package todo.ui;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
@@ -10,7 +10,4 @@ public class TodoHomePage extends PageObject {
 
     public static Target FOOTER = Target.the("footer section")
                                         .located(By.cssSelector("footer.info"));
-
-    public static Target NEW_TODO = Target.the("New Todo field")
-            .locatedBy("css:input.new-todo");
 }

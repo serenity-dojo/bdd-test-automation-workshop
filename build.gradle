@@ -23,7 +23,7 @@ apply plugin: 'net.serenity-bdd.aggregator'
 ext {
     slf4jVersion = '1.7.7'
     serenityCoreVersion = '2.0.50-SNAPSHOT'
-    serenityCucumberVersion = '1.0.13-SNAPSHOT'
+    serenityCucumberVersion = '1.0.12'
     junitVersion = '4.12'
     assertJVersion = '3.8.0'
     logbackVersion = '1.2.3'
