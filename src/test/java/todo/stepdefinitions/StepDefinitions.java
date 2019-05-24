@@ -33,19 +33,6 @@ public class StepDefinitions {
         );
     }
 
-    @Given("(.*) has not entered any todo items")
-    public void notEnteredAnyTodoItems(String actorName) {
-        theActorCalled(actorName).attemptsTo(
-                Open.browserOn().the(TodoHomePage.class)
-        );
-    }
-
-    @Then("the application should suggest how to add them")
-    public void theApplicationShouldSuggestHowToAddThem() {
-//        withCurrentActor(
-//                Ensure.that(TodoHomePage.NEW_TODO)
-//        );
-    }
 }
 
 
