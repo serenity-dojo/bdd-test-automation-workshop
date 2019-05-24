@@ -55,7 +55,9 @@ Now load the project into your IDE.
 
 ## Running the TodoMVC application locally
 
-We will be writing tests for the [TodoMVC](http://todomvc.com) application. You can run your tests either against the publicly available site, or by running the application locally. If you want to run the application locally, install [NodeJS](http://nodejs.org) on your machine and then install the [http-server](https://www.npmjs.com/package/http-server) package, e.g.
+We will be writing tests for the [TodoMVC](http://todomvc.com) application. 
+You can run your tests either against the publicly available site, or by running the application locally. 
+If you want to run the application locally, install [NodeJS](http://nodejs.org) on your machine and then install the [http-server](https://www.npmjs.com/package/http-server) package, e.g.
 ```
 $ npm install http-server -g
 ```

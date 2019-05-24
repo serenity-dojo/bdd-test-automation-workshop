@@ -24,13 +24,9 @@ public class StepDefinitions {
         );
     }
 
-    @Then("he should see \"(.*)\" in the footer")
-    public void he_should_see_in_the_footer(String creditMessage) {
-        withCurrentActor(
-                Ensure.that(TodoHomePage.FOOTER)
-                        .text()
-                        .contains(creditMessage)
-        );
+    @Then("he should see the credits in the footer")
+    public void he_should_see_in_the_footer() {
+        // TODO: Complete me!
     }
 }
 
