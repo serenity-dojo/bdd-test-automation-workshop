@@ -11,8 +11,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.49</serenity.version>
-        <serenity.maven.version>2.0.49</serenity.maven.version>
+        <serenity.version>2.0.50</serenity.version>
+        <serenity.maven.version>2.0.50</serenity.maven.version>
         <serenity.cucumber.version>1.0.12</serenity.cucumber.version>
         <cucumber.version>4.2.0</cucumber.version>
         <encoding>UTF-8</encoding>
@@ -141,7 +141,7 @@
                         <include>**/*Test.java</include>
                         <include>**/Test*.java</include>
                         <include>**/*TestSuite.java</include>
-                        <include>**/When*.java</include>
+                        <include>**/acceptancetests/*.java</include>
                     </includes>
                     <systemPropertyVariables>
                         <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>
