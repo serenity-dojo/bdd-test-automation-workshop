@@ -3,6 +3,7 @@ package todo.tasks;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.type.Type;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
@@ -28,7 +29,7 @@ public class AddATodoItem implements Performable {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Enter.theValue(thingToDo)
+                Type.theValue(thingToDo)
                         .into(TodoReact.NEW_TODO)
                         .thenHit(Keys.ENTER),
                 Ensure.that(TodoReact.NEW_TODO).value().isEmpty()

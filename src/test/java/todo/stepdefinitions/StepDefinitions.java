@@ -6,6 +6,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
+import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -30,14 +31,14 @@ public class StepDefinitions {
         setTheStage(new OnlineCast());
     }
 
-    @Given("(.*) (?:opens|has opened) the Todo Application")
-    public void opens_the_Todo_Application(String actorName) {
-        theActorCalled(actorName).attemptsTo(
+    @Given("{actor} opens the Todo Application")
+    public void opens_the_Todo_Application(Actor actor) {
+        actor.attemptsTo(
                 Open.browserOn().the(TodoReact.class)
         );
     }
 
-    @Then("^s?he should see the credits in the footer")
+    @Then("he/she should see the credits in the footer")
     public void he_should_see_in_the_footer() {
         withCurrentActor(
                 Ensure.that(TodoReact.FOOTER).text().contains("Part of TodoMVC")
@@ -53,9 +54,9 @@ public class StepDefinitions {
     //
     // LESSON 2
     //
-    @Given("(.*) has not entered any todo items")
-    public void has_not_entered_any_todo_items(String actorName) {
-        theActorCalled(actorName).attemptsTo(
+    @Given("{actor} has not entered any todo items")
+    public void has_not_entered_any_todo_items(Actor actor) {
+        actor.attemptsTo(
                 Open.browserOn().the(TodoReact.class)
         );
     }
@@ -71,14 +72,14 @@ public class StepDefinitions {
     //
     // LESSON 3
     //
-    @When("she adds \"(.*)\"")
+    @When("she adds {string}")
     public void she_adds(String todoItem) {
         withCurrentActor(
                 AddATodoItem.called(todoItem)
         );
     }
 
-    @Then("^(?:his|her) todo list should contain:$")
+    @Then("his/her todo list should contain:")
     public void the_todo_list_should_contain(List<String> expectedItems) {
         withCurrentActor(
                 Ensure.that(TodoReact.TODO_LIST_ITEMS)
@@ -90,9 +91,9 @@ public class StepDefinitions {
     //
     // LESSON 4
     //
-    @Given("^(.*) has a todo list containing$")
-    public void has_a_list_containing(String actorName, List<String> expectedItems) {
-        theActorCalled(actorName).attemptsTo(
+    @Given("{actor} has a todo list containing")
+    public void has_a_list_containing(Actor actor, List<String> expectedItems) {
+        actor.attemptsTo(
                 Open.browserOn().the(TodoReact.class),
                 AddTodoItems.from(expectedItems)
         );
