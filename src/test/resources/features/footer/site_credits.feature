@@ -1,3 +1,4 @@
+@ux
 Feature: Site Credits
   Scenario: The application credits should appear in the footer
     When Todd opens the Todo Application

@@ -1,3 +1,4 @@
+@workflow
 Feature: Updating todos
 
   Scenario: Should be able to update the name of a task

@@ -1,3 +1,4 @@
+@cleanup
 Feature: Deleting todos
 
   Scenario: Deleted todos should be removed entirely from the list

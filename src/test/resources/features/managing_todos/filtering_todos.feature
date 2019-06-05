@@ -1,3 +1,4 @@
+@workflow
 Feature: Filtering todos
 
   Scenario Outline: Should be able to view only completed todos

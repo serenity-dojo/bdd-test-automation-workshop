@@ -1,3 +1,4 @@
+@creation
 Feature: Adding new todos
 
   Scenario: User should be assisted when adding todo items for the first time

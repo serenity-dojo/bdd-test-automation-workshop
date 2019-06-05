@@ -1,3 +1,4 @@
+@workflow
 Feature: Completing todos
 
   Scenario: Completed todos should no longer appear in the active todo list
