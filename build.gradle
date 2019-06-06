@@ -12,6 +12,7 @@ buildscript {
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.50")
+        classpath("net.serenity-bdd:serenity-emailer:2.0.50")
     }
 }
 
@@ -55,6 +56,7 @@ dependencies {
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-emailer:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
 
             "junit:junit:${junitVersion}",
@@ -68,4 +70,8 @@ test {
 
 gradle.startParameter.continueOnFailure = true
 
-test.finalizedBy(aggregate)
+test.finalizedBy(aggregate, reports)
+
+serenity {
+    reports = ["email"]
+}
