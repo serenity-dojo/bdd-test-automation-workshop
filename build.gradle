@@ -54,7 +54,7 @@ dependencies {
 
     testCompile "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
-            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:erenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-emailer:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",

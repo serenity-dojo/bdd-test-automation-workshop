@@ -178,6 +178,11 @@
                         <artifactId>serenity-emailer</artifactId>
                         <version>${serenity.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>net.serenity-bdd</groupId>
+                        <artifactId>serenity-core</artifactId>
+                        <version>${serenity.version}</version>
+                    </dependency>
                 </dependencies>
                 <configuration>
                   <tags>${tags}</tags>
