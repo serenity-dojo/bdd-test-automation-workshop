@@ -14,3 +14,4 @@ Feature: Filtering todos
       | Filter    | Item Displayed |
       | Completed | Walk the dog   |
       | Active    | Feed the cat   |
+

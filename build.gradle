@@ -11,8 +11,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.50")
-        classpath("net.serenity-bdd:serenity-emailer:2.0.50")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.52")
+        classpath("net.serenity-bdd:serenity-emailer:2.0.52")
     }
 }
 
@@ -23,8 +23,8 @@ apply plugin: 'net.serenity-bdd.aggregator'
 
 ext {
     slf4jVersion = '1.7.7'
-    serenityCoreVersion = '2.0.50'
-    serenityCucumberVersion = '1.0.13'
+    serenityCoreVersion = '2.0.52'
+    serenityCucumberVersion = '1.0.14'
     junitVersion = '4.12'
     assertJVersion = '3.8.0'
     logbackVersion = '1.2.3'
@@ -54,7 +54,7 @@ dependencies {
 
     testCompile "net.serenity-bdd:serenity-junit:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
-            "net.serenity-bdd:erenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-emailer:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
