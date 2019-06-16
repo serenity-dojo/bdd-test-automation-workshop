@@ -127,7 +127,7 @@ Now go back to the [StepDefinitions](src/test/java/todo/stepdefinitions/StepDefi
 
 
 ```java
-    @Then("s?he should see the credits in the footer")
+    @Then("he/she should see the credits in the footer")
     public void he_should_see_in_the_footer() {
         // Write code here that turns the phrase above into concrete actions
         throw new cucumber.api.PendingException();
@@ -141,18 +141,22 @@ To do this, we replace the existing code of this method with the following:
     @Then("^s?he should see the credits in the footer")
     public void he_should_see_in_the_footer() {
         OnStage.withCurrentActor(
-                Ensure.that(TodoReact.FOOTER).text().contains("Part of TodoMVC")
+                Ensure.that(TodoReact.FOOTER)
+                      .text()
+                      .contains("Part of TodoMVC")
         );
     }
 ```
 
-Let's break this down. The `OnStage.withCurrentActor()` method finds the currently active actor (the last one to perform an action in the test). 
+Let's break this down. 
+The `OnStage.withCurrentActor()` method finds the currently active actor (the last one to perform an action in the test). 
 This method takes a list of business tasks and checks that the actor is to perform. 
 Each of these tasks or checks is represented by an object that implements the _Performable_ interface, which model user interactions with the application in a domain-readable manner.
 
 In this case, we use the `Ensure` class to check that the footer contains the text "Part of TodoMVC". 
-The `Ensure.that()` method accepts, among other things, a locator that identifies an element on the page. The locator can either use the standard Selenium `By`is  class, 
-or the Serenity `Target` class. This second option lets you combine a `By` locator (or a CSS or XPath expression) with a readable label that will appear in the reports when this element is used.
+The `Ensure.that()` method accepts, among other things, a locator that identifies an element on the page. 
+The locator can either use the standard Selenium `By`is  class, or the Serenity `Target` class. 
+This second option lets you combine a `By` locator (or a CSS or XPath expression) with a readable label that will appear in the reports when this element is used.
 An example is shown here:
 
 ```java
@@ -173,6 +177,23 @@ In this case, the `text()` method opens up access to a range of assertions about
 
 ## Lesson 3
 
+## Lesson 4
+
+## Lesson 5
+
+## Lesson 6
+
+## Lesson 7
+
+## Lesson 8
+
+## Lesson 9
+
+## Lesson 10
+
+## Lesson 11
+
+## Lesson 12
 
 ## Want to learn more?
 For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:
