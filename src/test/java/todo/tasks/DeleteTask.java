@@ -2,15 +2,9 @@ package todo.tasks;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
-import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.JavaScriptClick;
-import net.serenitybdd.screenplay.actions.MoveMouse;
-import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.waits.WaitUntil;
-import todo.pageobjects.TodoReact;
-
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import todo.pageobjects.TodoReactHomePage;
 
 public class DeleteTask implements Performable {
     private String taskName;
@@ -28,8 +22,8 @@ public class DeleteTask implements Performable {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(TodoReact.ITEM_LABEL.of(taskName)),
-                JavaScriptClick.on(TodoReact.DELETE_BUTTON.of(taskName))
+                Click.on(TodoReactHomePage.ITEM_LABEL.of(taskName)),
+                JavaScriptClick.on(TodoReactHomePage.DELETE_BUTTON.of(taskName))
         );
     }
 }

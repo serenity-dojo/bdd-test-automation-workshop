@@ -1,21 +1,13 @@
 package todo.tasks;
 
-import io.appium.java_client.PerformsActions;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
-import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.actions.Click;
-import net.serenitybdd.screenplay.actions.DoubleClick;
-import net.serenitybdd.screenplay.actions.SendKeys;
 import net.serenitybdd.screenplay.actions.PerformActions;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import todo.pageobjects.TodoReact;
+import todo.pageobjects.TodoReactHomePage;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class UpdateTask implements Performable {
@@ -36,7 +28,7 @@ public class UpdateTask implements Performable {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        WebElement todoItem = TodoReact.ITEM_LABEL.of(currentTaskName).resolveFor(actor);
+        WebElement todoItem = TodoReactHomePage.ITEM_LABEL.of(currentTaskName).resolveFor(actor);
 
         actor.attemptsTo(
                 PerformActions.with(actions -> actions

@@ -1,38 +1,17 @@
 package todo.tasks;
 
-import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
-import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.type.Type;
-import net.serenitybdd.screenplay.ensure.Ensure;
-import net.thucydides.core.annotations.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import todo.pageobjects.TodoReact;
+import todo.pageobjects.TodoReactHomePage;
 
-public class AddATodoItem implements Performable {
-
-    private String thingToDo;
-
-    public AddATodoItem() {
-    }
-
-    public AddATodoItem(String thingToDo) {
-        this.thingToDo = thingToDo;
-    }
-
-
+public class AddATodoItem {
     public static Performable called(String thingToDo) {
-        return new AddATodoItem(thingToDo);
-    }
-
-    @Step("{0} adds a new todo item called '#thingToDo'")
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(
+        return Task.where("{0} adds a todo item called: " + thingToDo,
                 Type.theValue(thingToDo)
-                        .into(TodoReact.NEW_TODO)
+                        .into(TodoReactHomePage.NEW_TODO)
                         .thenHit(Keys.ENTER)
-        );
+                );
     }
 }
