@@ -172,6 +172,16 @@ public class StepDefinitions {
                 UpdateTask.from(currentItemName).to(newItemName)
         );
     }
+
+    //
+    // LESSON 10
+    //
+    @And("the remaining item count should show {string}")
+    public void theRemainingItemCountShouldShow(String remainingItemCountText) {
+        withCurrentActor(
+                Ensure.that(TodoReact.ITEMS_LEFT_MESSAGE).text().isEqualTo(remainingItemCountText)
+        );
+    }
 }
 
 

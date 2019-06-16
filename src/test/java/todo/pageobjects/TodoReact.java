@@ -25,6 +25,9 @@ public class TodoReact extends PageObject {
     public static final Target ITEMS_LEFT = Target.the("number of items left")
             .locatedBy(".todo-count strong");
 
+    public static final Target ITEMS_LEFT_MESSAGE = Target.the("number of items left")
+            .locatedBy(".todo-count");
+
     public static Target completeCheckboxFor(String itemToComplete) {
         return COMPLETE_ITEM_CHECKBOX.of(itemToComplete);
     }
