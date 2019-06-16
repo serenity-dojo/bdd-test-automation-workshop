@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features/footer/site_credits.feature",
+        features = "src/test/resources/features/site_layout/site_title_and_credits.feature",
         glue = "todo"
 )
 public class SiteCredits {}

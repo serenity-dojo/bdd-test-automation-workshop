@@ -113,8 +113,8 @@ The home page (for the React implementation of the application) is represented b
 @DefaultUrl("http://todomvc.com/examples/react/#")
 public class TodoReact extends PageObject {
 
-    public static Target FOOTER = Target.the("footer section")
-                                        .located(By.cssSelector("footer.info"));
+    public static Target FOOTER = Target.the(site_layout)
+                                        .located(By.cssSelector(site_layout));
 }
 ```
 
@@ -138,7 +138,7 @@ To implement this step, we will use the `FOOTER` locator we saw in the page obje
 To do this, we replace the existing code of this method with the following:
 
 ```java
-    @Then("^s?he should see the credits in the footer")
+    @Then(site_layout)
     public void he_should_see_in_the_footer() {
         OnStage.withCurrentActor(
                 Ensure.that(TodoReact.FOOTER)
