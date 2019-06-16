@@ -7,6 +7,8 @@ Feature: Site Credits
 
   @pending
   Scenario: The page title should be shown
+    When Todd opens the Todo Application
+    Then the page title should include "TodoMVC"
 
   @manual
   Scenario: The layout should be correct
