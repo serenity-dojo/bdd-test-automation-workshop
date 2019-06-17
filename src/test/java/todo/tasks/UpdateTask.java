@@ -3,18 +3,18 @@ package todo.tasks;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.actions.PerformActions;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import todo.pageobjects.TodoReactHomePage;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class UpdateTask implements Performable {
     private String currentTaskName;
     private String newTaskName;
 
-    public UpdateTask(String currentTaskName, String newTaskName) {
+    private UpdateTask(String currentTaskName, String newTaskName) {
         this.currentTaskName = currentTaskName;
         this.newTaskName = newTaskName;
     }
@@ -26,7 +26,21 @@ public class UpdateTask implements Performable {
         return new UpdateTaskBuilder(currentTaskName);
     }
 
+    public static class UpdateTaskBuilder {
+        private String currentTaskName;
+
+        UpdateTaskBuilder(String currentTaskName) {
+            this.currentTaskName = currentTaskName;
+        }
+
+        public UpdateTask to(String newTaskName) {
+            return new UpdateTask(currentTaskName, newTaskName);
+        }
+    }
+
+
     @Override
+    @Step("{0} updates the name of the '#currentTaskName' task to '#newTaskName")
     public <T extends Actor> void performAs(T actor) {
         WebElement todoItem = TodoReactHomePage.ITEM_LABEL.of(currentTaskName).resolveFor(actor);
 
@@ -34,41 +48,16 @@ public class UpdateTask implements Performable {
                 PerformActions.with(actions -> actions
                         .doubleClick(todoItem)
                         .sendKeys(backspacesToDelete(currentTaskName))
-                        .sendKeys(Keys.chord(Keys.CONTROL, "a"),
-                                Keys.BACK_SPACE,
-                                newTaskName,
-                                Keys.ENTER)
+                        .sendKeys(newTaskName)
+                        .sendKeys(Keys.ENTER)
                         .perform()
                 )
         );
-//        BrowseTheWeb.as(actor)
-//                .withAction()
-//                .doubleClick(todoItem)
-//                .sendKeys(backspacesToDelete(currentTaskName))
-//                .sendKeys(Keys.chord(Keys.CONTROL, "a"),
-//                        Keys.BACK_SPACE,
-//                        newTaskName,
-//                        Keys.ENTER)
-//                .perform();
     }
 
     private Keys[] backspacesToDelete(String currentTaskName) {
-        List<Keys> keys = new ArrayList<>();
-        for (int i = 0; i < currentTaskName.length(); i++) {
-            keys.add(Keys.BACK_SPACE);
-        }
-        return keys.toArray(new Keys[]{});
-    }
-
-    public static class UpdateTaskBuilder {
-        private String currentTaskName;
-
-        public UpdateTaskBuilder(String currentTaskName) {
-            this.currentTaskName = currentTaskName;
-        }
-
-        public UpdateTask to(String newTaskName) {
-            return new UpdateTask(currentTaskName, newTaskName);
-        }
+        Keys[] backspaces = new Keys[currentTaskName.length()];
+        Arrays.fill(backspaces, Keys.BACK_SPACE);
+        return backspaces;
     }
 }

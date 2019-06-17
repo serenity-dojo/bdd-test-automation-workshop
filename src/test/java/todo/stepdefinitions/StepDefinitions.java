@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.actions.Open;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.ensure.Ensure;
+
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
 import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
@@ -17,6 +18,7 @@ import net.serenitybdd.screenplay.questions.WebElementQuestion;
 import todo.pageobjects.TodoReactHomePage;
 import todo.pageobjects.TodoStatus;
 import todo.tasks.*;
+import todo.questions.ItemStatusQuestions;
 
 import java.util.List;
 
@@ -127,33 +129,12 @@ public class StepDefinitions {
         );
         // LESSON 7
         withCurrentActor(
-                Ensure.thatTheAnswerTo(statusOf(todoItem)).isEqualTo(TodoStatus.COMPLETED)
-        );
-    }
-
-    @And("the number of items left should be {int}")
-    public void theNumberOfItemsLeftShouldBe(Integer itemsLeft) {
-        withCurrentActor(
-                Ensure.that(TodoReactHomePage.ITEMS_LEFT).text().isEqualTo(itemsLeft.toString())
+                Ensure.thatTheAnswerTo(ItemStatusQuestions.statusOf(todoItem)).isEqualTo(TodoStatus.COMPLETED)
         );
     }
 
     //
-    // LESSON 6
-    //
-    static Question<TodoStatus> statusOf(String todoItem) {
-        return Question.about("todo status").answeredBy(
-                actor -> {
-                    if (LISTED_TODO_ITEM.of(todoItem).resolveFor(actor).getAttribute("class").equals("completed"))
-                        return TodoStatus.COMPLETED;
-                    else
-                        return TodoStatus.TODO;
-                }
-        );
-    }
-
-    //
-    // LESSON 7
+    // LESSON 8
     //
     @When("he/she filters the list to show {word} tasks")
     public void filtersBy(String filter) {
@@ -163,7 +144,7 @@ public class StepDefinitions {
     }
 
     //
-    // LESSON 8
+    // LESSON 9
     //
     @When("he/she deletes {string}")
     public void deletesItem(String todoItem) {
@@ -173,22 +154,32 @@ public class StepDefinitions {
     }
 
     //
-    // LESSON 9
+    // LESSON 10
     //
-    @When("she updates {string} to {string}")
-    public void sheUpdatesTo(String currentItemName, String newItemName) {
+    @And("the number of items left should be {int}")
+    public void theNumberOfItemsLeftShouldBe(Integer itemsLeft) {
         withCurrentActor(
-                UpdateTask.from(currentItemName).to(newItemName)
+                Ensure.that(TodoReactHomePage.ITEMS_LEFT).text().asAnInteger().isEqualTo(itemsLeft)
         );
     }
 
     //
-    // LESSON 10
+    // LESSON 11
     //
     @And("the remaining item count should show {string}")
     public void theRemainingItemCountShouldShow(String remainingItemCountText) {
         withCurrentActor(
                 Ensure.that(TodoReactHomePage.ITEMS_LEFT_MESSAGE).text().isEqualTo(remainingItemCountText)
+        );
+    }
+
+    //
+    // LESSON 12
+    //
+    @When("she updates {string} to {string}")
+    public void sheUpdatesTo(String currentItemName, String newItemName) {
+        withCurrentActor(
+                UpdateTask.from(currentItemName).to(newItemName)
         );
     }
 
