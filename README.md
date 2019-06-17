@@ -77,6 +77,7 @@ Now that you have a running environment, you can try out the tutorial exercises.
 * [Exercises without the solutions](tutorial.md)
 * [Exercises with solutions](tutorial-with-solutions.md)
 
+You can find the sample solutions in the [solutions branch](https://github.com/serenity-dojo/bdd-test-automation-workshop/tree/solution)
 
 ## Want to learn more?
 For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:
