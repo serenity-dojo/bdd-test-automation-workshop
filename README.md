@@ -53,9 +53,11 @@ Or if you prefer to use Gradle:
 
 Now load the project into your IDE.
 
-## Running the TodoMVC application locally
+### Running the TodoMVC application locally
 
-We will be writing tests for the [TodoMVC](http://todomvc.com) application. You can run your tests either against the publicly available site, or by running the application locally. If you want to run the application locally, install [NodeJS](http://nodejs.org) on your machine and then install the [http-server](https://www.npmjs.com/package/http-server) package, e.g.
+We will be writing tests for the [TodoMVC](http://todomvc.com) application. 
+You can run your tests either against the publicly available site, or by running the application locally. 
+If you want to run the application locally, install [NodeJS](http://nodejs.org) on your machine and then install the [http-server](https://www.npmjs.com/package/http-server) package, e.g.
 ```
 $ npm install http-server -g
 ```
@@ -63,6 +65,18 @@ Then, to run the demo application, run the following from the project root direc
 ```
 $ http-server todomvc
 ```
+
+### Running the tests
+
+You can run the test suite by running the [CucumberTestSuite](src/test/java/todo/CucumberTestSuite.java) class in your IDE, or by running `mvn verify` from the command line.
+
+## The tutorial exercises
+
+Now that you have a running environment, you can try out the tutorial exercises. 
+
+* [Exercises without the solutions](tutorial.md)
+* [Exercises with solutions](tutorial-with-solutions.md)
+
 
 ## Want to learn more?
 For more information about Serenity BDD, you can read the [**Serenity BDD Book**](https://serenity-bdd.github.io/theserenitybook/latest/index.html), the official online Serenity documentation source. Other sources include:

@@ -11,7 +11,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.50-SNAPSHOT")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.52")
+        classpath("net.serenity-bdd:serenity-emailer:2.0.52")
     }
 }
 
@@ -22,8 +23,8 @@ apply plugin: 'net.serenity-bdd.aggregator'
 
 ext {
     slf4jVersion = '1.7.7'
-    serenityCoreVersion = '2.0.50-SNAPSHOT'
-    serenityCucumberVersion = '1.0.12'
+    serenityCoreVersion = '2.0.52'
+    serenityCucumberVersion = '1.0.14'
     junitVersion = '4.12'
     assertJVersion = '3.8.0'
     logbackVersion = '1.2.3'
@@ -55,6 +56,7 @@ dependencies {
             "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-emailer:${serenityCoreVersion}",
             "net.serenity-bdd:serenity-cucumber4:${serenityCucumberVersion}",
 
             "junit:junit:${junitVersion}",
@@ -68,4 +70,8 @@ test {
 
 gradle.startParameter.continueOnFailure = true
 
-test.finalizedBy(aggregate)
+test.finalizedBy(aggregate, reports)
+
+serenity {
+    reports = ["email"]
+}
