@@ -447,7 +447,7 @@ This exercises practices the techniques we have seen before, so try doing it you
 There is only one new step to implement here: "And she filters the list to show <Filter> tasks". 
 We can create a `FiltersTask` class for this performable:
 
-```java
+```
     @When("he/she filters the list to show {word} tasks")
     public void filtersBy(String filter) {
         withCurrentActor(
