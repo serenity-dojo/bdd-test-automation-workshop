@@ -3,6 +3,23 @@
 The aim of this tutorial is to learn how to use Cucumber and Serenity Screenplay to write expressive, highly maintainable executable specifications.
 The application under test will be the TodoMVC application.
 
+## Runner classes
+
+Serenity Cucumber tests need runner classes to run them. You can see an example of in [SiteLayout.java](src/test/java/todo/acceptancetests/SiteLayout.java):
+
+```java
+@RunWith(CucumberWithSerenity.class)
+@CucumberOptions(
+        plugin = {"pretty"},
+        features = "src/test/resources/features/site_layout/site_title_and_credits.feature",
+        glue = "todo"
+)
+public class SiteLayout {}
+```
+
+Each time you work with a new feature file, create a new runner class with the corresponding path so that you can run your tests in isolation.
+This will also make it easier to run all of the tests in parallel.
+
 ## Lesson 1
 
 The first Cucumber scenario we will work on can be found in the [site_title_and_credits.feature](src/test/resources/features/layout/site_title_and_credits.feature) feature file.
