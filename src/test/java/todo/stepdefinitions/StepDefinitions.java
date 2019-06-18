@@ -60,7 +60,7 @@ public class StepDefinitions {
     @Then("the page title should include {string}")
     public void thePageTitleShouldInclude(String expectedTitle) {
         withCurrentActor(
-                Ensure.that(todoReactHomePage).title().contains(expectedTitle)
+                Ensure.thatTheCurrentPage().title().contains(expectedTitle)
         );
     }
 
