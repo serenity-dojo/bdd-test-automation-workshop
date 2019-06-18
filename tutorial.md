@@ -122,7 +122,7 @@ Next, we will implement the other pending scenario in the [site_title_and_credit
     Then the page title should include "TodoMVC"
 ```
 
-**HINT**: Declare a Page Object field in the step definition class and use the `Ensure.that(...).title()...` method.
+**HINT**: Use the `Ensure.thatTheCurrentPage().title()...` method.
 
 ## Lesson 3 - checking the prompt message
 
