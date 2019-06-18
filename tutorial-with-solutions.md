@@ -45,7 +45,7 @@ The home page (for the React implementation of the application) is represented b
 
 ```java
 @DefaultUrl("http://todomvc.com/examples/react/#")
-public class TodoReact extends PageObject {
+public class TodoReactHomePage extends PageObject {
 
     public static Target FOOTER = Target.the(site_layout)
                                         .located(By.cssSelector(site_layout));
@@ -74,7 +74,7 @@ To do this, we replace the existing code of this method with the following:
     @Then(site_layout)
     public void he_should_see_in_the_footer() {
         OnStage.withCurrentActor(
-                Ensure.that(TodoReact.FOOTER).text().contains("Part of TodoMVC")
+                Ensure.that(TodoReactHomePage.FOOTER).text().contains("Part of TodoMVC")
         );
     }
 ```
@@ -116,18 +116,15 @@ The generated code should look something like this:
     }
 ```
 
-We will need a Page Object to retreive the browser title from, 
-so we will declare a field of type `TodoReactHomePage` and add it to the `StepDefinitions` class:
-```java
-    private TodoReactHomePage todoReactHomePage;
-```
-
-Now, in the new step definition method, use the `withCurrentActor()` and `Ensure.that()` methods to check that the page title contains the expected value:
+In the new step definition method, use the `withCurrentActor()` and `Ensure.thatTheCurrentPage()` methods to check that the page title contains the expected value:
 
 ```java
+    @Then("the page title should include {string}")
+    public void thePageTitleShouldInclude(String expectedTitle) {
         withCurrentActor(
-                Ensure.that(todoReactHomePage).title().contains(expectedTitle)
+                Ensure.thatTheCurrentPage().title().contains(expectedTitle)
         );
+    }
 ```
 
 ## Lesson 3 - checking the prompt message

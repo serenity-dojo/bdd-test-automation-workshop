@@ -11,8 +11,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.52")
-        classpath("net.serenity-bdd:serenity-emailer:2.0.52")
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.53")
+        classpath("net.serenity-bdd:serenity-emailer:2.0.53")
     }
 }
 
@@ -23,7 +23,7 @@ apply plugin: 'net.serenity-bdd.aggregator'
 
 ext {
     slf4jVersion = '1.7.7'
-    serenityCoreVersion = '2.0.52'
+    serenityCoreVersion = '2.0.53'
     serenityCucumberVersion = '1.0.14'
     junitVersion = '4.12'
     assertJVersion = '3.8.0'
