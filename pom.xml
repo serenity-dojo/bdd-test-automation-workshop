@@ -82,6 +82,12 @@
         </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
+            <artifactId>serenity-assertions</artifactId>
+            <version>${serenity.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-ensure</artifactId>
             <version>${serenity.version}</version>
             <scope>test</scope>

@@ -33,86 +33,8 @@ The scenario is a simple one:
 The first step has already been implemented for you. 
 If you open the [StepDefinitions](src/test/java/todo/stepdefinitions/StepDefinitions.java) class, you can see how it works.
 
-The first thing you will see in this class is a `@Before` method, which gets executed at the start of each scenario:
-```java
-    @Before
-    public void prepareTests() {
-        setTheStage(new OnlineCast());
-    }
-```
-In Screenplay tests, we describe _actors_ who perform _tasks_. This method is responsible for preparing the actors who will take part in the tests. We do this by assigning a _cast_ to a _stage_.
-A cast is a bit like a factory for actors. An `OnlineCast` will provide actors who are equiped with a WebDriver instance.
 
-The first step definition method is shown below:
-```java
-    @Given("(.*) (?:opens|has opened) the Todo Application")
-    public void opens_the_Todo_Application(String actorName) {
-        theActorCalled(actorName).attemptsTo(
-                Open.browserOn().the(TodoHomePage.class)
-        );
-    }
-```
-
-This method does two things. First of all, it invokes an actor with a name specified in the scenario. 
-Screenplay scenarios can involve one or more actors, each identified by a different name.
-
-Secondly, it opens the browser on the application home page. 
-The home page (for the React implementation of the application) is represented by the [TodoReactHomePage](src/test/java/todo/pageobjects/TodoReactHomePage.java) class, which is shown below:
-
-```java
-@DefaultUrl("http://todomvc.com/examples/react/#")
-public class TodoReact extends PageObject {
-
-    public static Target FOOTER = Target.the(site_layout)
-                                        .located(By.cssSelector(site_layout));
-}
-```
-
-This Page Object uses the `@DefaultUrl` annotation to determine what page it should open when the `Open.browserOn()` task is performed. 
-The `FOOTER` field is a locator that knows where to find the page footer. We will be using this field shortly.
-
-Now that you have an idea of how the code works, it's time to implement the second step definition method.
-Go back to the [StepDefinitions](src/test/java/todo/stepdefinitions/StepDefinitions.java) and look at the second step definiton method:
-
-
-```java
-    @Then("s?he should see the credits in the footer")
-    public void he_should_see_in_the_footer() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-```
-
-To implement this step, we will use the `FOOTER` locator we saw in the page object earlier to check that the page footer contains the words "Part of TodoMVC".
-To do this, we replace the existing code of this method with the following:
-
-```java
-    @Then(site_layout)
-    public void he_should_see_in_the_footer() {
-        OnStage.withCurrentActor(
-                Ensure.that(TodoReact.FOOTER).text().contains("Part of TodoMVC")
-        );
-    }
-```
-
-Let's break this down. The `OnStage.withCurrentActor()` method finds the currently active actor (the last one to perform an action in the test). 
-This method takes a list of business tasks and checks that the actor is to perform. 
-Each of these tasks or checks is represented by an object that implements the _Performable_ interface, which model user interactions with the application in a domain-readable manner.
-
-In this case, we use the `Ensure` class to check that the footer contains the text "Part of TodoMVC". 
-The `Ensure.that()` method accepts, among other things, a locator that identifies an element on the page. The locator can either use the standard Selenium `By`is  class, 
-or the Serenity `Target` class. This second option lets you combine a `By` locator (or a CSS or XPath expression) with a readable label that will appear in the reports when this element is used.
-An example is shown here:
-
-```java
-    public static Target FOOTER = Target.the("footer section")
-                                        .located(By.cssSelector("footer.info"));
-```
-
-The `Ensure.that()` method returns a fluent builder that shows you the available assertions for the type of parameter you provide. 
-In this case, the `text()` method opens up access to a range of assertions about the text value of this element. 
-
-## Lesson 2 - check the site title
+# Lesson 2 - check the site title
 
 Next, we will implement the other pending scenario in the [site_title_and_credits.feature](src/test/resources/features/site_layout/site_title_and_credits.feature) feature file:
 
@@ -121,8 +43,6 @@ Next, we will implement the other pending scenario in the [site_title_and_credit
     When Todd opens the Todo Application
     Then the page title should include "TodoMVC"
 ```
-
-**HINT**: Use the `Ensure.thatTheCurrentPage().title()...` method.
 
 ## Lesson 3 - checking the prompt message
 

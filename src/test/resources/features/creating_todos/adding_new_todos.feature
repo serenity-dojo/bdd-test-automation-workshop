@@ -15,7 +15,7 @@ Feature: Adding new todos
     When she adds "Walk the dog"
     Then her todo list should contain:
       | Walk the dog |
-    And the remaining item count should show "1 item left"
+#    And the remaining item count should show "1 item left"
 
   Scenario: Adding todo items to an existing list
     Given Trudy has a todo list containing
