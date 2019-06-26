@@ -20,4 +20,8 @@ public class TodoListActions extends UIInteractionSteps {
     public Integer numberOfItemsLeft() {
         return Integer.parseInt($(TodoList.NUMBER_OF_ITEMS_LEFT).getText());
     }
+
+    public String numberOfItemsLeftMessage() {
+        return $(TodoList.NUMBER_OF_ITEMS_LEFT_MESSAGE).getText();
+    }
 }

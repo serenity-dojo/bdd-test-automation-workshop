@@ -2,29 +2,17 @@ package todo.stepdefinitions;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
-
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.actions.Open;
-import net.serenitybdd.screenplay.ensure.Ensure;
+import cucumber.api.java.en.When;
 import net.thucydides.core.annotations.Steps;
 import todo.actions.addtodo.AddNewTodoActions;
 import todo.actions.completetodos.CompleteTodoActions;
 import todo.actions.delete.DeleteItem;
 import todo.actions.filter.FilterItemsActions;
-import todo.actions.navigation.NavigateActions;
 import todo.actions.layout.LayoutActions;
+import todo.actions.navigation.NavigateActions;
 import todo.actions.todolist.TodoListActions;
-import todo.pageobjects.TodoReactHomePage;
-import todo.pageobjects.TodoStatus;
-import todo.questions.ItemStatusQuestions;
-import todo.tasks.AddTodoItems;
-import todo.tasks.CompleteTodoItem;
-import todo.tasks.DeleteTask;
-import todo.tasks.FilterTasks;
+import todo.actions.update.UpdateItem;
 
 import java.util.List;
 
@@ -139,9 +127,6 @@ public class StepDefinitions {
     @When("he/she deletes {string}")
     public void deletesItem(String todoItem) {
         deleteItem.called(todoItem);
-//        withCurrentActor(
-//                DeleteTask.called(todoItem)
-//        );
     }
 
     //
@@ -151,26 +136,25 @@ public class StepDefinitions {
     public void theNumberOfItemsLeftShouldBe(Integer itemsLeft) {
         assertThat(todoItems.numberOfItemsLeft()).isEqualTo(itemsLeft);
     }
-//
-//    //
-//    // LESSON 11
-//    //
-//    @And("the remaining item count should show {string}")
-//    public void theRemainingItemCountShouldShow(String remainingItemCountText) {
-//        withCurrentActor(
-//                Ensure.that(TodoReactHomePage.ITEMS_LEFT_MESSAGE).text().isEqualTo(remainingItemCountText)
-//        );
-//    }
-//
-//    //
-//    // LESSON 12
-//    //
-//    @When("she updates {string} to {string}")
-//    public void sheUpdatesTo(String currentItemName, String newItemName) {
-//        withCurrentActor(
-//                UpdateTask.from(currentItemName).to(newItemName)
-//        );
-//    }
+
+    //
+    // LESSON 11
+    //
+    @And("the remaining item count should show {string}")
+    public void theRemainingItemCountShouldShow(String remainingItemCountText) {
+        assertThat(todoItems.numberOfItemsLeftMessage()).isEqualTo(remainingItemCountText);
+    }
+
+    //
+    // LESSON 12
+    //
+    @Steps
+    UpdateItem updateItem;
+
+    @When("she updates {string} to {string}")
+    public void sheUpdatesTo(String currentItemName, String newItemName) {
+        updateItem.from(currentItemName).to(newItemName);
+    }
 
 }
 
